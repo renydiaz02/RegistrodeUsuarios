@@ -1,0 +1,39 @@
+﻿<Window x:Class="RegistrodeUsuarios.UI.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:PasswordHelper="clr-namespace:RegistrodeUsuarios.PasswordHelper"
+        xmlns:local="clr-namespace:RegistrodeUsuarios.UI"
+        mc:Ignorable="d"
+        Title="Login" Height="200" Width="400">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Vertical" Height="135" Width="340">
+                <Label Content="Nombre Usuario"/>
+                <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding NombreUsuario}"/>
+
+                <Label Content="Contraseña"/>
+                <PasswordBox x:Name="ContrasenaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" 
+                             PasswordHelper:PasswordHelper.Password="{Binding Contrasena, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                    <Button x:Name="IngresarButton" Click="IngresarButton_Click" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/ingresar.png" Width="20"/>
+                            <Label Content="Ingresar"/>
+
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="CancelarButton" Click="CancelarButton_Click" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/anular.png" Width="25"/>
+                            <Label Content="Cancelar"/>
+
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
